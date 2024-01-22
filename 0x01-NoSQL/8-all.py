@@ -5,6 +5,4 @@
 
 def list_all(mongo_collection):
     """Find a collection, if none return empty array"""
-    if mongo_collection.find() is None:
-        return []
-    return mongo_collection.find()
+    return [docs for docs in mongo_collection.find()]

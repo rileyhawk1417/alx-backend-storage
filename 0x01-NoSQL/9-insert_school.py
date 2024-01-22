@@ -5,4 +5,5 @@
 
 def insert_school(mongo_collection, **kwargs):
     """Find a collection, if none return empty array"""
-    return mongo_collection.insertOne(kwargs)
+    res = mongo_collection.insert_one(kwargs)
+    return res
