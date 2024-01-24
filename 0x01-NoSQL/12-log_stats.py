@@ -21,7 +21,7 @@ def dump_nginx_req_data(nginx_data):
 def runMain():
     """Run MongoClient then pass on the collection to next function"""
     mongodb = MongoClient('mongodb://127.0.0.1:27017')
-    dump_nginx_req_data(mongodb)
+    dump_nginx_req_data(mongodb.logs.nginx)
 
 
 if __name__ == '__main__':
