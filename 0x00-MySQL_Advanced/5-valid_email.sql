@@ -1,3 +1,5 @@
+-- Create a trigger function for update on users table
+
 DELIMITER //
 CREATE TRIGGER before_update BEFORE UPDATE ON users
 FOR EACH ROW BEGIN

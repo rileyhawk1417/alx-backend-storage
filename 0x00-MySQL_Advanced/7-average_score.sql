@@ -1,3 +1,5 @@
+-- Calculate the average score for users
+
 DELIMITER //
 
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)

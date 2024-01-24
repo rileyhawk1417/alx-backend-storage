@@ -1,3 +1,5 @@
+-- Create a trigger function for insert on orders table
+
 DELIMITER //
 CREATE TRIGGER after_insert AFTER INSERT ON orders
 FOR EACH ROW BEGIN

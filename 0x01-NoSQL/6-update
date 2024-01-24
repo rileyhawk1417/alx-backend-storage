@@ -1,1 +1,2 @@
+// Update documents that match name in school collection
 db.school.updateMany({name: 'Holberton School'}, {$set: {attribute: '972 Mission street'}})

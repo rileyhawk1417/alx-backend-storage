@@ -1,3 +1,5 @@
+-- Divide function for sql
+
 DELIMITER //
 
 CREATE FUNCTION SafeDiv(a INT, b INT)

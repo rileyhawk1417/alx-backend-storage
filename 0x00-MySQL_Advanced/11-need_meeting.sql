@@ -1,3 +1,5 @@
+-- Create a view for students meeting
+
 CREATE VIEW need_meeting AS
 SELECT
     students.student_name,

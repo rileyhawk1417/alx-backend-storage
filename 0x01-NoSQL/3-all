@@ -1,1 +1,2 @@
+// Find all records for school
 db.school.find()
