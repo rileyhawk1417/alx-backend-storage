@@ -1,7 +1,8 @@
 -- Calculate the average weighted score for the student
+-- Extra comment line
 
 DELIMITER $$
-CREATE PROCEDURE ComputerAverageWeightedScoreForUser(IN user_id INT)
+CREATE PROCEDURE ComputeAverageWeightedScoreForUser(IN user_id INT)
 BEGIN
     UPDATE users
     SET average_score = (

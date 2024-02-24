@@ -1,4 +1,5 @@
 -- Calculate the average weighted score for students
+-- Extra comment line
 
 DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUsers;
 DELIMITER $$
