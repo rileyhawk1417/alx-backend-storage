@@ -1,5 +1,7 @@
--- Select metal bands with specific query 
-SELECT origins, SUM(fans) AS 'nb_fans'
+-- Select metal bands rank by country origin
+-- ordered by unique fans
+
+SELECT origin, SUM(fans) AS 'nb_fans'
         FROM metal_bands
         GROUP BY origin
         ORDER BY nb_fans DESC;
