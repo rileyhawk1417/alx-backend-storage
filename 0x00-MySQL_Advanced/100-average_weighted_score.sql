@@ -1,6 +1,5 @@
 -- Calculate the average weighted score for the student
 
-DROP PROCEDURE IF EXISTS ComputerAverageWeightedScoreForUser;
 DELIMITER $$
 CREATE PROCEDURE ComputerAverageWeightedScoreForUser(IN user_id INT)
 BEGIN
