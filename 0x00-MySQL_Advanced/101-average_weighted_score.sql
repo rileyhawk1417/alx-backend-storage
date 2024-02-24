@@ -1,4 +1,5 @@
 -- Calculate the average weighted score for students
+-- Extra comment line
 
 DELIMITER $$
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
