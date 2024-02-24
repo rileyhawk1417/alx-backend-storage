@@ -11,7 +11,7 @@ def dump_nginx_req_data(nginx_data):
     print(f'{nginx_data.estimated_document_count()} logs')
     print('Methods:')
     for method in http_methods:
-        method_counter = nginx_data.count_documents({'methods': method})
+        method_counter = nginx_data.count_documents({'method': method})
         print(f'\tmethod {method}: {method_counter}')
     stat_count = nginx_data.count_documents(
         {'method': 'GET', 'path': '/status'})
