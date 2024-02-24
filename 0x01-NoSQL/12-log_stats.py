@@ -8,13 +8,13 @@ from pymongo import MongoClient
 def dump_nginx_req_data(nginx_data):
     """Dump nginx request data to the output"""
     http_methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-    print(f'{nginx_data.count_documents()} logs')
+    print(f'{nginx_data.estimated_document_count()} logs')
     print('Methods:')
     for method in http_methods:
-        method_counter = len(list(nginx_data.find({'method': method})))
+        method_counter = nginx_data.count_documents({'methods': method})
         print(f'\tmethod {method}: {method_counter}')
-    stat_count = len(list(nginx_data.find(
-        {'method': 'GET', 'path': '/status'})))
+    stat_count = nginx_data.count_documents(
+        {'method': 'GET', 'path': '/status'})
     print(f'{stat_count} status check')
 
 

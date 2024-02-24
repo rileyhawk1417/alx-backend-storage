@@ -1,2 +1,3 @@
 // Insert a record into School Collection
-db.school.insert({name: "Holberton School"})
+
+db.school.insert({name: "Holberton school"})
