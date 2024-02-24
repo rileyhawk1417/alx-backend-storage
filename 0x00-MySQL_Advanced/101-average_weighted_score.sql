@@ -1,15 +1,14 @@
 -- Calculate the average weighted score for students
--- Extra comment line
 
 DELIMITER $$
-CREATE PROCEDURE ComputeAverageWeightedScoreForUsers(IN user_id INT)
+CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
 BEGIN
     UPDATE users
     SET average_score = (
-        SELECT IF(SUM(score * weight) > 0, SUM(score * weight) / SUM(weight), 0)
+        SELECT SUM(corrections.score * projects.weight) / SUM(projects.weight)
         FROM corrections
         JOIN projects ON corrections.project_id = projects.id
-        WHERE corrections.user_id = user_id
+        WHERE corrections.user_id = users.id
     )
 END $$
 DELIMITER;
