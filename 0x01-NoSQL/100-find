@@ -1,1 +1,2 @@
+// Find a document using regex in mongodb
 db.school.find({name: /Holberton.*/}).forEach(printjson);
