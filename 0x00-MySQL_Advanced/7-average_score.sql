@@ -1,18 +1,23 @@
 -- Calculate the average score for users
-
-DELIMITER //
-
+-- after calculation then store the score.
+DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
+DELIMITER $$
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
-    DECLARE project_id INT;
-    SELECT id INTO project_id FROM projects WHERE name =  project_name;
+    DECLARE total_score INT DEFAULT 0;
+    DECLARE projects_count INT DEFAULT 0;
+    SELECT SUM(score)
+        INTO total_score
+        FROM corrections
+        WHERE corrections.user_id = user_id;
+
+    SELECT SUM(*)
+        INTO total_score
+        FROM corrections
+        WHERE corrections.user_id = user_id;
     
-    IF project_id IS NULL THEN
-        INSERT INTO projects (name) VALUES (project_name);
-        SET project_id = LAST_INSERT_ID();
-    END IF;
-
-    INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, project_id, score)
-END //
-
+    UPDATE users
+        SET users.average_score = IF(projects_count = 0, 0, total_score / projects_count)
+        WHERE users.id = user_id;
+END $$
 DELIMITER;

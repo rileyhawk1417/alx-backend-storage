@@ -1,20 +1,15 @@
 -- Divide function for sql
-
-DELIMITER //
-
+DROP FUNCTION IF EXISTS SafeDiv;
+DELIMITER $$
 CREATE FUNCTION SafeDiv(a INT, b INT)
-RETURNS DECIMAL(10, 2)
+RETURNS FLOAT DETERMINISTIC
 BEGIN
-    DECLARE result DECIMAL(10, 2);
+    DECLARE result FLOAT DEFAULT 0;
 
-    IF b = 0 THEN
-        SET result = 0;
-    ELSE
+    IF b != 0 THEN
         SET result = a / b;
     END IF;
-
     RETURN result;
-END //
-
+END $$
 DELIMITER ;
 
